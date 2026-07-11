@@ -1,7 +1,6 @@
 "use client";
 
 import { ThemeProvider as MuiThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import {
   createContext,
   useCallback,
@@ -59,7 +58,6 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <ColorModeContext.Provider value={{ mode, toggle }}>
       <MuiThemeProvider theme={theme}>
-        <CssBaseline />
         <CartProvider>{children}</CartProvider>
       </MuiThemeProvider>
     </ColorModeContext.Provider>

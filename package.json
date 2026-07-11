@@ -7,6 +7,14 @@
     "build": "node scripts/generate-images.mjs && next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test --project=chromium",
+    "test:smoke": "playwright test --grep @smoke --project=chromium",
+    "test:e2e": "playwright test tests/e2e --project=chromium",
+    "test:headed": "playwright test --headed --project=chromium",
+    "test:debug": "playwright test --debug --project=chromium",
+    "test:report": "playwright show-report",
+    "test:ci": "playwright test --grep @smoke --project=chromium",
     "download:images": "node scripts/download-product-photos.mjs",
     "validate:images": "tsx scripts/validate-product-images.ts",
     "deploy:firebase": "npm run build && firebase deploy --only hosting"
@@ -23,6 +31,8 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
