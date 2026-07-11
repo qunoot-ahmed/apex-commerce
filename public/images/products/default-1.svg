@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Default">
+  
+    <rect width="800" height="800" fill="#111827"/>
+    <rect x="200" y="260" width="400" height="320" rx="24" fill="#6b7280"/>
+    <rect x="260" y="320" width="280" height="200" rx="12" fill="#d1d5db" opacity="0.75"/>
+  
+  <text x="400" y="740" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,Arial,sans-serif" font-size="28" font-weight="600" opacity="0.9">Default</text>
+</svg>

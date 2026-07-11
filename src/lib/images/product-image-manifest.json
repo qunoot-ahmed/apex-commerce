@@ -1,0 +1,502 @@
+{
+  "archetypes": [
+    {
+      "key": "running-shoe",
+      "label": "running shoe",
+      "category": "shoes",
+      "alt": "Running shoe product photo",
+      "allowedRoots": [
+        "fashion",
+        "sports"
+      ],
+      "allowedSegments": [
+        "shoes",
+        "running"
+      ],
+      "images": [
+        "/images/products/photos/running-shoe-1.webp",
+        "/images/products/photos/running-shoe-2.webp",
+        "/images/products/photos/running-shoe-3.webp"
+      ]
+    },
+    {
+      "key": "sneaker",
+      "label": "sneaker",
+      "category": "shoes",
+      "alt": "Casual sneaker product photo",
+      "allowedRoots": [
+        "fashion",
+        "kids"
+      ],
+      "allowedSegments": [
+        "shoes"
+      ],
+      "images": [
+        "/images/products/photos/sneaker-1.webp",
+        "/images/products/photos/sneaker-2.webp",
+        "/images/products/photos/sneaker-3.webp"
+      ]
+    },
+    {
+      "key": "hoodie",
+      "label": "shirt",
+      "category": "apparel",
+      "alt": "Shirt product photo",
+      "allowedRoots": [
+        "fashion",
+        "sports",
+        "kids"
+      ],
+      "allowedSegments": [
+        "clothing",
+        "tops",
+        "apparel"
+      ],
+      "images": [
+        "/images/products/photos/hoodie-1.webp",
+        "/images/products/photos/hoodie-2.webp",
+        "/images/products/photos/hoodie-3.webp"
+      ]
+    },
+    {
+      "key": "jacket",
+      "label": "shirt",
+      "category": "apparel",
+      "alt": "Shirt product photo",
+      "allowedRoots": [
+        "fashion",
+        "sports"
+      ],
+      "allowedSegments": [
+        "outerwear",
+        "apparel",
+        "outdoor"
+      ],
+      "images": [
+        "/images/products/photos/jacket-1.webp",
+        "/images/products/photos/jacket-2.webp",
+        "/images/products/photos/jacket-3.webp"
+      ]
+    },
+    {
+      "key": "polo-shirt",
+      "label": "polo shirt",
+      "category": "apparel",
+      "alt": "Polo shirt product photo",
+      "allowedRoots": [
+        "fashion"
+      ],
+      "allowedSegments": [
+        "tops",
+        "clothing"
+      ],
+      "images": [
+        "/images/products/photos/polo-shirt-1.webp",
+        "/images/products/photos/polo-shirt-2.webp",
+        "/images/products/photos/polo-shirt-3.webp"
+      ]
+    },
+    {
+      "key": "dress",
+      "label": "dress",
+      "category": "apparel",
+      "alt": "Dress product photo",
+      "allowedRoots": [
+        "fashion"
+      ],
+      "allowedSegments": [
+        "clothing",
+        "tops"
+      ],
+      "images": [
+        "/images/products/photos/dress-1.webp",
+        "/images/products/photos/dress-2.webp",
+        "/images/products/photos/dress-3.webp"
+      ]
+    },
+    {
+      "key": "jeans",
+      "label": "jeans",
+      "category": "apparel",
+      "alt": "Jeans product photo",
+      "allowedRoots": [
+        "fashion",
+        "kids"
+      ],
+      "allowedSegments": [
+        "bottoms",
+        "clothing"
+      ],
+      "images": [
+        "/images/products/photos/jeans-1.jpg",
+        "/images/products/photos/jeans-2.jpg",
+        "/images/products/photos/jeans-3.jpg"
+      ]
+    },
+    {
+      "key": "backpack",
+      "label": "backpack",
+      "category": "accessories",
+      "alt": "Backpack product photo",
+      "allowedRoots": [
+        "fashion",
+        "sports",
+        "kids"
+      ],
+      "allowedSegments": [
+        "bags",
+        "accessories",
+        "outdoor",
+        "hiking"
+      ],
+      "images": [
+        "/images/products/photos/backpack-1.webp",
+        "/images/products/photos/backpack-2.webp",
+        "/images/products/photos/backpack-3.webp"
+      ]
+    },
+    {
+      "key": "baseball-cap",
+      "label": "sports accessory",
+      "category": "accessories",
+      "alt": "Sports accessory product photo",
+      "allowedRoots": [
+        "fashion",
+        "sports",
+        "kids"
+      ],
+      "allowedSegments": [
+        "hats",
+        "accessories"
+      ],
+      "images": [
+        "/images/products/photos/baseball-cap-1.webp",
+        "/images/products/photos/baseball-cap-2.webp",
+        "/images/products/photos/baseball-cap-3.webp"
+      ]
+    },
+    {
+      "key": "water-bottle",
+      "label": "sports accessory",
+      "category": "accessories",
+      "alt": "Sports accessory product photo",
+      "allowedRoots": [
+        "sports",
+        "home"
+      ],
+      "allowedSegments": [
+        "training",
+        "outdoor",
+        "camping",
+        "equipment"
+      ],
+      "images": [
+        "/images/products/photos/water-bottle-1.webp",
+        "/images/products/photos/water-bottle-2.webp",
+        "/images/products/photos/water-bottle-3.webp"
+      ]
+    },
+    {
+      "key": "yoga-mat",
+      "label": "sports accessory",
+      "category": "sports",
+      "alt": "Sports accessory product photo",
+      "allowedRoots": [
+        "sports"
+      ],
+      "allowedSegments": [
+        "training",
+        "equipment"
+      ],
+      "images": [
+        "/images/products/photos/yoga-mat-1.webp",
+        "/images/products/photos/yoga-mat-2.webp",
+        "/images/products/photos/yoga-mat-3.webp"
+      ]
+    },
+    {
+      "key": "smartwatch",
+      "label": "smartwatch",
+      "category": "electronics",
+      "alt": "Smartwatch product photo",
+      "allowedRoots": [
+        "electronics",
+        "sports"
+      ],
+      "allowedSegments": [
+        "phones",
+        "accessories",
+        "training"
+      ],
+      "images": [
+        "/images/products/photos/smartwatch-1.webp",
+        "/images/products/photos/smartwatch-2.webp",
+        "/images/products/photos/smartwatch-3.webp"
+      ]
+    },
+    {
+      "key": "bluetooth-speaker",
+      "label": "Bluetooth speaker",
+      "category": "electronics",
+      "alt": "Bluetooth speaker product photo",
+      "allowedRoots": [
+        "electronics"
+      ],
+      "allowedSegments": [
+        "audio",
+        "speakers"
+      ],
+      "images": [
+        "/images/products/photos/bluetooth-speaker-1.webp",
+        "/images/products/photos/bluetooth-speaker-2.webp",
+        "/images/products/photos/bluetooth-speaker-3.webp"
+      ]
+    },
+    {
+      "key": "laptop-sleeve",
+      "label": "mobile accessory",
+      "category": "electronics",
+      "alt": "Mobile accessory product photo",
+      "allowedRoots": [
+        "electronics",
+        "fashion"
+      ],
+      "allowedSegments": [
+        "computers",
+        "laptops",
+        "accessories",
+        "bags"
+      ],
+      "images": [
+        "/images/products/photos/laptop-sleeve-1.webp",
+        "/images/products/photos/laptop-sleeve-2.webp",
+        "/images/products/photos/laptop-sleeve-3.webp"
+      ]
+    },
+    {
+      "key": "smartphone",
+      "label": "smartphone",
+      "category": "electronics",
+      "alt": "Smartphone product photo",
+      "allowedRoots": [
+        "electronics"
+      ],
+      "allowedSegments": [
+        "phones",
+        "smartphones"
+      ],
+      "images": [
+        "/images/products/photos/smartphone-1.webp",
+        "/images/products/photos/smartphone-2.webp",
+        "/images/products/photos/smartphone-3.webp"
+      ]
+    },
+    {
+      "key": "laptop",
+      "label": "laptop",
+      "category": "electronics",
+      "alt": "Laptop computer product photo",
+      "allowedRoots": [
+        "electronics"
+      ],
+      "allowedSegments": [
+        "computers",
+        "laptops"
+      ],
+      "images": [
+        "/images/products/photos/laptop-1.webp",
+        "/images/products/photos/laptop-2.webp",
+        "/images/products/photos/laptop-3.webp"
+      ]
+    },
+    {
+      "key": "tablet",
+      "label": "tablet",
+      "category": "electronics",
+      "alt": "Tablet computer product photo",
+      "allowedRoots": [
+        "electronics"
+      ],
+      "allowedSegments": [
+        "computers",
+        "tablets"
+      ],
+      "images": [
+        "/images/products/photos/tablet-1.webp",
+        "/images/products/photos/tablet-2.webp",
+        "/images/products/photos/tablet-3.webp"
+      ]
+    },
+    {
+      "key": "headphones",
+      "label": "headphones",
+      "category": "electronics",
+      "alt": "Headphones product photo",
+      "allowedRoots": [
+        "electronics"
+      ],
+      "allowedSegments": [
+        "audio",
+        "headphones"
+      ],
+      "images": [
+        "/images/products/photos/headphones-1.webp",
+        "/images/products/photos/headphones-2.webp",
+        "/images/products/photos/headphones-3.webp"
+      ]
+    },
+    {
+      "key": "television",
+      "label": "electronics accessory",
+      "category": "electronics",
+      "alt": "Electronics accessory product photo",
+      "allowedRoots": [
+        "electronics"
+      ],
+      "allowedSegments": [
+        "tv",
+        "4k",
+        "oled"
+      ],
+      "images": [
+        "/images/products/photos/television-1.webp",
+        "/images/products/photos/television-2.webp",
+        "/images/products/photos/television-3.webp"
+      ]
+    },
+    {
+      "key": "accent-chair",
+      "label": "furniture",
+      "category": "home",
+      "alt": "Furniture product photo",
+      "allowedRoots": [
+        "home"
+      ],
+      "allowedSegments": [
+        "furniture",
+        "living-room",
+        "bedroom",
+        "office"
+      ],
+      "images": [
+        "/images/products/photos/accent-chair-1.webp",
+        "/images/products/photos/accent-chair-2.webp",
+        "/images/products/photos/accent-chair-3.webp"
+      ]
+    },
+    {
+      "key": "cookware",
+      "label": "cookware set",
+      "category": "home",
+      "alt": "Cookware set product photo",
+      "allowedRoots": [
+        "home"
+      ],
+      "allowedSegments": [
+        "kitchen",
+        "cookware",
+        "appliances"
+      ],
+      "images": [
+        "/images/products/photos/cookware-1.webp",
+        "/images/products/photos/cookware-2.webp",
+        "/images/products/photos/cookware-3.webp"
+      ]
+    },
+    {
+      "key": "table-lamp",
+      "label": "table lamp",
+      "category": "home",
+      "alt": "Table lamp product photo",
+      "allowedRoots": [
+        "home"
+      ],
+      "allowedSegments": [
+        "decor",
+        "lighting",
+        "rugs"
+      ],
+      "images": [
+        "/images/products/photos/table-lamp-1.webp",
+        "/images/products/photos/table-lamp-2.webp",
+        "/images/products/photos/table-lamp-3.webp"
+      ]
+    },
+    {
+      "key": "skincare",
+      "label": "skincare product",
+      "category": "beauty",
+      "alt": "Skincare bottle product photo",
+      "allowedRoots": [
+        "beauty"
+      ],
+      "allowedSegments": [
+        "skincare",
+        "moisturizers",
+        "cleansers"
+      ],
+      "images": [
+        "/images/products/photos/skincare-1.webp",
+        "/images/products/photos/skincare-2.webp",
+        "/images/products/photos/skincare-3.webp"
+      ]
+    },
+    {
+      "key": "makeup",
+      "label": "makeup product",
+      "category": "beauty",
+      "alt": "Makeup product photo",
+      "allowedRoots": [
+        "beauty"
+      ],
+      "allowedSegments": [
+        "makeup",
+        "face",
+        "eyes"
+      ],
+      "images": [
+        "/images/products/photos/makeup-1.webp",
+        "/images/products/photos/makeup-2.webp",
+        "/images/products/photos/makeup-3.webp"
+      ]
+    },
+    {
+      "key": "fragrance",
+      "label": "fragrance bottle",
+      "category": "beauty",
+      "alt": "Fragrance bottle product photo",
+      "allowedRoots": [
+        "beauty"
+      ],
+      "allowedSegments": [
+        "fragrance",
+        "men",
+        "women"
+      ],
+      "images": [
+        "/images/products/photos/fragrance-1.webp",
+        "/images/products/photos/fragrance-2.webp",
+        "/images/products/photos/fragrance-3.webp"
+      ]
+    },
+    {
+      "key": "toy",
+      "label": "children's toy",
+      "category": "kids",
+      "alt": "Children's toy product photo",
+      "allowedRoots": [
+        "kids"
+      ],
+      "allowedSegments": [
+        "toys",
+        "educational",
+        "outdoor"
+      ],
+      "images": [
+        "/images/products/kids-1.svg",
+        "/images/products/kids-2.svg",
+        "/images/products/kids-3.svg"
+      ]
+    }
+  ]
+}

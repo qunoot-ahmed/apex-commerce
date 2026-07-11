@@ -4,13 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-images.mjs && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "download:images": "node scripts/download-product-photos.mjs",
+    "validate:images": "tsx scripts/validate-product-images.ts",
+    "deploy:firebase": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^9.0.1",
+    "@mui/material": "^9.0.1",
+    "bootstrap": "^5.3.8",
     "next": "16.2.7",
     "react": "19.2.4",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
@@ -20,7 +29,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
+    "firebase-tools": "^14.0.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.0",
     "typescript": "^5"
   }
 }

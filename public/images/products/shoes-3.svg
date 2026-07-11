@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Shoes">
+  
+    <rect width="800" height="800" fill="#312e81"/>
+    <ellipse cx="400" cy="560" rx="280" ry="70" fill="#a78bfa" opacity="0.35"/>
+    <path d="M180 520 Q260 420 400 400 Q540 420 620 520 L580 580 Q400 620 220 580 Z" fill="#a78bfa"/>
+    <path d="M220 500 Q320 460 400 470 Q480 460 580 500" stroke="#fb7185" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <circle cx="320" cy="490" r="18" fill="#fb7185"/>
+  
+  <text x="400" y="740" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,Arial,sans-serif" font-size="28" font-weight="600" opacity="0.9">Shoes</text>
+</svg>

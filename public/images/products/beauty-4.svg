@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Beauty">
+  
+    <rect width="800" height="800" fill="#4a044e"/>
+    <rect x="340" y="200" width="120" height="420" rx="60" fill="#c026d3"/>
+    <ellipse cx="400" cy="200" rx="90" ry="40" fill="#e879f9"/>
+    <circle cx="280" cy="520" r="70" fill="#e879f9" opacity="0.55"/>
+    <circle cx="520" cy="540" r="55" fill="#c026d3" opacity="0.55"/>
+  
+  <text x="400" y="740" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,Arial,sans-serif" font-size="28" font-weight="600" opacity="0.9">Beauty</text>
+</svg>

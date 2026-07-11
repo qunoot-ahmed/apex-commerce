@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Brand">
+      <rect width="120" height="120" rx="24" fill="#14532d"/>
+      <circle cx="60" cy="60" r="34" fill="#22c55e" opacity="0.85"/>
+      <text x="60" y="68" text-anchor="middle" fill="#fff" font-family="Segoe UI,Arial,sans-serif" font-size="22" font-weight="700">BR</text>
+    </svg>
