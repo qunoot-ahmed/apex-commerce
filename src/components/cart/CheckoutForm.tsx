@@ -65,7 +65,7 @@ export function CheckoutForm() {
         }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         setError(data.details?.join(" ") ?? data.error ?? "Checkout failed.");
         return;
@@ -93,8 +93,9 @@ export function CheckoutForm() {
                 <h2 className="h5 fw-bold mb-3">Shipping Address</h2>
                 <div className="row g-3">
                   <div className="col-md-6">
-                    <label className="form-label">First name</label>
+                    <label className="form-label" htmlFor="checkout-first-name">First name</label>
                     <input
+                      id="checkout-first-name"
                       className="form-control"
                       required
                       value={address.firstName}
@@ -102,8 +103,9 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-md-6">
-                    <label className="form-label">Last name</label>
+                    <label className="form-label" htmlFor="checkout-last-name">Last name</label>
                     <input
+                      id="checkout-last-name"
                       className="form-control"
                       required
                       value={address.lastName}
@@ -111,8 +113,9 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-md-6">
-                    <label className="form-label">Email</label>
+                    <label className="form-label" htmlFor="checkout-email">Email</label>
                     <input
+                      id="checkout-email"
                       type="email"
                       className="form-control"
                       required
@@ -121,8 +124,9 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-md-6">
-                    <label className="form-label">Phone</label>
+                    <label className="form-label" htmlFor="checkout-phone">Phone</label>
                     <input
+                      id="checkout-phone"
                       className="form-control"
                       required
                       value={address.phone}
@@ -130,8 +134,9 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-12">
-                    <label className="form-label">Address</label>
+                    <label className="form-label" htmlFor="checkout-address">Address</label>
                     <input
+                      id="checkout-address"
                       className="form-control"
                       required
                       value={address.address1}
@@ -139,16 +144,18 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-12">
-                    <label className="form-label">Apartment, suite, etc. (optional)</label>
+                    <label className="form-label" htmlFor="checkout-address-2">Apartment, suite, etc. (optional)</label>
                     <input
+                      id="checkout-address-2"
                       className="form-control"
                       value={address.address2}
                       onChange={(e) => updateField("address2", e.target.value)}
                     />
                   </div>
                   <div className="col-md-5">
-                    <label className="form-label">City</label>
+                    <label className="form-label" htmlFor="checkout-city">City</label>
                     <input
+                      id="checkout-city"
                       className="form-control"
                       required
                       value={address.city}
@@ -156,8 +163,9 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label className="form-label">State</label>
+                    <label className="form-label" htmlFor="checkout-state">State</label>
                     <input
+                      id="checkout-state"
                       className="form-control"
                       required
                       value={address.state}
@@ -165,8 +173,9 @@ export function CheckoutForm() {
                     />
                   </div>
                   <div className="col-md-3">
-                    <label className="form-label">ZIP</label>
+                    <label className="form-label" htmlFor="checkout-zip">ZIP</label>
                     <input
+                      id="checkout-zip"
                       className="form-control"
                       required
                       value={address.zip}
@@ -214,7 +223,12 @@ export function CheckoutForm() {
           </div>
 
           <div className="col-lg-5">
-            <div className="card border-0 shadow-sm sticky-top" style={{ top: 100 }}>
+            <div
+              className="card border-0 shadow-sm sticky-top"
+              style={{ top: 100 }}
+              role="region"
+              aria-label="Checkout order summary"
+            >
               <div className="card-body">
                 <h2 className="h5 fw-bold mb-3">Order Summary</h2>
                 <ul className="list-unstyled mb-3">
@@ -234,8 +248,14 @@ export function CheckoutForm() {
                   <span>Shipping</span>
                   <span>{totals.shipping === 0 ? "FREE" : formatPrice(totals.shipping)}</span>
                 </div>
+                {totals.savings > 0 && (
+                  <div className="d-flex justify-content-between mb-2 text-success">
+                    <span>Savings</span>
+                    <span>-{formatPrice(totals.savings)}</span>
+                  </div>
+                )}
                 <div className="d-flex justify-content-between mb-2">
-                  <span>Tax</span>
+                  <span>Tax (8%)</span>
                   <span>{formatPrice(totals.tax)}</span>
                 </div>
                 <hr />
@@ -243,7 +263,7 @@ export function CheckoutForm() {
                   <span>Total</span>
                   <span>{formatPrice(totals.total)}</span>
                 </div>
-                {error && <div className="alert alert-danger py-2 small">{error}</div>}
+                {error && <div className="alert alert-danger py-2 small" role="alert">{error}</div>}
                 <button
                   type="submit"
                   className="btn btn-dark w-100 btn-lg"

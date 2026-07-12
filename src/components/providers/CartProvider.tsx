@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -62,11 +63,20 @@ async function syncWithApi(
 }
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartLineItem[]>(() => loadStoredItems());
-  const [totals, setTotals] = useState<CartTotals>(() =>
-    calculateCartTotals(loadStoredItems())
-  );
-  const [isLoading] = useState(false);
+  const [items, setItems] = useState<CartLineItem[]>([]);
+  const [totals, setTotals] = useState<CartTotals>(() => calculateCartTotals([]));
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      const storedItems = loadStoredItems();
+      setItems(storedItems);
+      setTotals(calculateCartTotals(storedItems));
+      setIsLoading(false);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   const persist = useCallback(async (nextItems: CartLineItem[]) => {
     setItems(nextItems);
@@ -79,7 +89,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addToCart = useCallback(
     async (product: Product, quantity = 1) => {
-      const state = await syncWithApi("add", items, {
+      const state = await syncWithApi("add", loadStoredItems(), {
         productId: product.id,
         quantity,
       });
@@ -87,7 +97,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       setTotals(state.totals);
       saveItems(state.items);
     },
-    [items]
+    []
   );
 
   const updateQuantity = useCallback(

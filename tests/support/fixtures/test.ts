@@ -59,7 +59,10 @@ export { expect };
 
 async function resetBrowserState(page: Page) {
   await page.addInitScript(() => {
+    if (sessionStorage.getItem("apex-test-state-reset")) return;
+
     localStorage.removeItem("apex-cart");
     sessionStorage.removeItem("apex-last-order");
+    sessionStorage.setItem("apex-test-state-reset", "true");
   });
 }

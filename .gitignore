@@ -28,15 +28,6 @@ next-env.d.ts
 .env.*
 !.env.example
 
-# Firebase local state and credentials
-.firebase/
-firebase-debug.log
-firebase-debug.*.log
-.firebaserc
-serviceAccount*.json
-*-service-account*.json
-firebase-service-account*.json
-
 # Vercel local project link
 .vercel/
 
@@ -47,6 +38,8 @@ firebase-service-account*.json
 *.p12
 *.pfx
 credentials*.json
+serviceAccount*.json
+*-service-account*.json
 secrets*.json
 
 # Logs

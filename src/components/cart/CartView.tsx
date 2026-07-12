@@ -32,7 +32,12 @@ export function CartView() {
       <div className="row g-4">
         <div className="col-lg-8">
           {items.map((item) => (
-            <div key={item.productId} className="card border-0 shadow-sm mb-3">
+            <div
+              key={item.productId}
+              className="card border-0 shadow-sm mb-3"
+              role="group"
+              aria-label={`Cart item: ${item.name}`}
+            >
               <div className="card-body">
                 <div className="row align-items-center g-3 cart-line-row">
                   <div className="col-4 col-sm-auto">
@@ -68,6 +73,7 @@ export function CartView() {
                       <button
                         type="button"
                         className="btn btn-outline-secondary"
+                        aria-label={`Decrease quantity for ${item.name}`}
                         onClick={() => updateQuantity(item.productId, item.quantity - 1)}
                       >
                         -
@@ -77,11 +83,12 @@ export function CartView() {
                         className="form-control text-center"
                         value={item.quantity}
                         readOnly
-                        aria-label="Quantity"
+                        aria-label={`Quantity for ${item.name}`}
                       />
                       <button
                         type="button"
                         className="btn btn-outline-secondary"
+                        aria-label={`Increase quantity for ${item.name}`}
                         onClick={() => updateQuantity(item.productId, item.quantity + 1)}
                         disabled={item.quantity >= item.stock}
                       >
@@ -96,6 +103,7 @@ export function CartView() {
                     <button
                       type="button"
                       className="btn btn-link text-danger text-decoration-none p-0 p-sm-2"
+                      aria-label={`Remove ${item.name}`}
                       onClick={() => removeFromCart(item.productId)}
                     >
                       Remove
@@ -108,7 +116,12 @@ export function CartView() {
         </div>
 
         <div className="col-lg-4">
-          <div className="card border-0 shadow-sm sticky-top" style={{ top: 100 }}>
+          <div
+            className="card border-0 shadow-sm sticky-top"
+            style={{ top: 100 }}
+            role="region"
+            aria-label="Cart order summary"
+          >
             <div className="card-body">
               <h2 className="h5 fw-bold mb-3">Order Summary</h2>
               <div className="d-flex justify-content-between mb-2">

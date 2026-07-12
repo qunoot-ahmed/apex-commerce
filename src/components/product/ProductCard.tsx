@@ -12,9 +12,16 @@ export function ProductCard({ product }: { product: Product }) {
   const salePrice = effectivePrice(product.price, product.discountPercent);
 
   return (
-    <article className="product-card card h-100 border-0 shadow-sm apex-animate-in">
+    <article
+      className="product-card card h-100 border-0 shadow-sm apex-animate-in"
+      aria-label={`Product: ${product.name}`}
+    >
       <div className="product-card-image position-relative overflow-hidden">
-        <Link href={productUrl(product.slug)} className="text-decoration-none text-body">
+        <Link
+          href={productUrl(product.slug)}
+          className="text-decoration-none text-body"
+          aria-label={`View product image for ${product.name}`}
+        >
           <CatalogImage
             src={product.image.src}
             alt={product.image.alt}
@@ -31,11 +38,19 @@ export function ProductCard({ product }: { product: Product }) {
         )}
       </div>
       <div className="card-body d-flex flex-column">
-        <Link href={productUrl(product.slug)} className="text-decoration-none text-body">
+        <Link
+          href={productUrl(product.slug)}
+          className="text-decoration-none text-body"
+          aria-label={`View details for ${product.name}`}
+        >
           <p className="text-muted small mb-1 text-uppercase">{product.brandSlug}</p>
           <h3 className="h6 card-title mb-2 line-clamp-2">{product.name}</h3>
         </Link>
-        <div className="d-flex align-items-center gap-1 mb-2">
+        <div
+          className="d-flex align-items-center gap-1 mb-2"
+          role="img"
+          aria-label={`Rating: ${product.rating} out of 5`}
+        >
           <Rating value={product.rating} precision={0.1} readOnly size="small" />
           <span className="small text-muted">({product.reviewCount})</span>
         </div>

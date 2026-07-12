@@ -2,7 +2,7 @@
 
 Production-grade Next.js ecommerce platform built for large-scale URL discovery, SEO crawling, analytics testing, and performance benchmarking.
 
-This repository is also being developed as a Quality Engineering portfolio project for senior QA, test automation, and test consulting roles. The automation strategy is intentionally risk-based: it starts with deployment-critical smoke coverage and grows into catalog, search, cart, checkout, API, accessibility, visual, SEO, responsive, and CI quality gates.
+This repository is also a Quality Engineering portfolio project for senior QA, test automation, and test consulting roles. The automation strategy is risk-based and now includes smoke, regression, API, UI/API integration, accessibility, visual, SEO crawler, responsive, cross-browser, and master-branch CI quality gates.
 
 ## Live Website
 
@@ -27,10 +27,35 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Quality Engineering Stack
 
-- Playwright Test with TypeScript for UI, API, responsive, visual, SEO, and integration testing
-- `@axe-core/playwright` for automated accessibility checks
+- Playwright Test with TypeScript for UI, API, integration, SEO, responsive, and visual checks
+- `@axe-core/playwright` for automated WCAG A/AA accessibility scans
+- Native Playwright `toHaveScreenshot` visual regression
 - Playwright HTML, list, and JUnit reporters
-- GitHub Actions planned for pull-request and scheduled regression quality gates
+- GitHub Actions quality gate on push to `master`, with optional manual `workflow_dispatch`
+
+## Test Architecture
+
+```mermaid
+flowchart TD
+  App[Apex Commerce Next.js App] --> Local[Local Next.js Server]
+  App --> Vercel[Vercel Deployment]
+  Local --> Specs[Playwright Specs]
+  Vercel --> Specs
+  Specs --> Projects[Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari]
+  Specs --> Smoke[Smoke]
+  Specs --> Regression[UI Regression]
+  Specs --> API[API Clients and API Specs]
+  Specs --> Integration[UI/API Integration]
+  Specs --> A11y[Axe Accessibility]
+  Specs --> Visual[Native Screenshot Baselines]
+  Specs --> SEO[SEO and Bounded Crawler]
+  Specs --> Responsive[Responsive and Cross-Browser Smoke]
+  API --> Clients[tests/support/clients]
+  Specs --> Fixtures[Fixtures, Page Objects, Assertions, Cart Helpers]
+  Specs --> Reports[HTML, JUnit, Traces, Screenshots, Videos]
+  GHA[GitHub Actions: push to master/manual] --> Local
+  GHA --> Reports
+```
 
 ## Test Commands
 
@@ -40,20 +65,27 @@ Install Playwright browsers once per machine:
 npx playwright install
 ```
 
-Run the current Phase 1 smoke suite:
-
-```bash
-npm run test:smoke
-```
-
-Useful local commands:
-
 ```bash
 npm run test
+npm run test:smoke
 npm run test:e2e
+npm run test:regression
+npm run test:api
+npm run test:integration
+npm run test:a11y
+npm run test:visual
+npm run test:visual:update
+npm run test:seo
+npm run test:responsive
+npm run test:cross-browser
+npm run test:catalog
+npm run test:search
+npm run test:cart
+npm run test:checkout
 npm run test:headed
 npm run test:debug
 npm run test:report
+npm run test:pr
 ```
 
 Validation commands:
@@ -65,6 +97,19 @@ npm run build
 ```
 
 Playwright reports are written to `playwright-report/`; JUnit output is written to `test-results/junit.xml`.
+Traces, screenshots, videos, and visual diffs are written under `test-results/`.
+
+Visual baselines are reviewed with `npm run test:visual` and intentionally updated with `npm run test:visual:update`.
+
+## Documentation
+
+- `docs/quality-strategy.md`
+- `docs/product-risk-analysis.md`
+- `docs/test-coverage-matrix.md`
+- `docs/automation-architecture.md`
+- `docs/ci-quality-gates.md`
+- `docs/known-limitations.md`
+- `docs/visual-regression.md`
 
 ## Crawler entry point
 
@@ -102,6 +147,8 @@ Playwright uses `BASE_URL` when targeting a deployed or already-running environm
 BASE_URL=http://localhost:3000
 ```
 
+CI runs on push to `master` and optional manual dispatch only. Scheduled daily/monthly regression is intentionally not part of the accepted plan.
+
 ## Images
 
 Product images use an explicit local image manifest with downloaded product assets mapped by product archetype and category. See `src/lib/images/product-image-manifest.json` and `src/lib/images/catalog-images.ts`.
@@ -128,9 +175,28 @@ No third-party tracking scripts are loaded by default.
 
 ## Current Testing Status
 
-Phase 1 adds the Playwright foundation and smoke coverage for homepage availability, primary navigation, search, product opening, add-to-cart, cart summary visibility, critical image loading, and critical browser/network error detection.
+Implemented coverage includes:
 
-Broader API, accessibility, visual, SEO, responsive, and CI workflow coverage will be added in later approved phases.
+- Phase 1 smoke coverage for deployment-critical customer journeys and browser diagnostics.
+- Phase 2 regression coverage for catalog, search, cart business rules, and simulated checkout UI behavior.
+- Phase 3 API coverage for `/api/cart` and `/api/checkout`, plus UI/API cart total consistency.
+- Phase 4 automated accessibility coverage with Axe and focused keyboard/form/name checks.
+- Phase 5 Chromium-only visual regression using native Playwright screenshots.
+- Phase 6 SEO metadata, structured data, sitemap, robots, invalid route, and bounded crawler coverage.
+- Phase 7 responsive and cross-browser smoke coverage using existing Playwright projects.
+- Phase 8 GitHub Actions quality gate on push to `master` or manual dispatch.
+- Phase 9 documentation describing strategy, risk, coverage, architecture, CI, and limitations.
+
+## Known Limitations
+
+- Checkout is simulated; no real payment provider is exercised.
+- Cart UI state is localStorage-backed; API-created state is seeded into localStorage for the integration test.
+- Catalog data is generated/static mock data, not a live database.
+- Automated Axe checks do not prove complete accessibility compliance.
+- Visual regression is Chromium-only.
+- Cross-browser coverage is representative smoke, not the full regression suite in every browser.
+- CI is master-only/manual by design and has no scheduled workflow.
+- Deployment positioning is Vercel-only. Firebase configs, scripts, and docs are intentionally absent.
 
 ## AI-Assisted Development Disclosure
 

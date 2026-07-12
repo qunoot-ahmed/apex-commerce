@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { formatPrice } from "@/lib/utils/format";
-import { productsUrl } from "@/lib/routes/urls";
+import { cartUrl, productsUrl } from "@/lib/routes/urls";
 import type { CheckoutResponse } from "@/types/cart";
 
 export default function CheckoutSuccessClient() {
@@ -22,6 +22,20 @@ export default function CheckoutSuccessClient() {
     }
     return null;
   });
+
+  if (!order || !orderNumber || order.orderNumber !== orderNumber) {
+    return (
+      <div className="container py-5 text-center col-lg-6">
+        <h1 className="display-6 fw-bold mb-3">No order found</h1>
+        <p className="lead text-muted mb-4">
+          We could not find a recent checkout confirmation for this browser session.
+        </p>
+        <Link href={cartUrl()} className="btn btn-dark btn-lg">
+          Return to Cart
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="container py-5 text-center col-lg-6">

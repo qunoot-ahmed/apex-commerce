@@ -1,12 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import { SEARCH_SUGGESTIONS } from "@/lib/constants";
 import { searchUrl } from "@/lib/routes/urls";
 
 export function SearchBar({ defaultQuery = "" }: { defaultQuery?: string }) {
   const router = useRouter();
+  const suggestionsId = useId();
   const [q, setQ] = useState(defaultQuery);
 
   function onSubmit(e: FormEvent) {
@@ -25,13 +26,13 @@ export function SearchBar({ defaultQuery = "" }: { defaultQuery?: string }) {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           aria-label="Search"
-          list="search-suggestions"
+          list={suggestionsId}
         />
         <button type="submit" className="btn btn-dark btn-lg px-4">
           Search
         </button>
       </form>
-      <datalist id="search-suggestions">
+      <datalist id={suggestionsId}>
         {SEARCH_SUGGESTIONS.map((s) => (
           <option key={s} value={s} />
         ))}

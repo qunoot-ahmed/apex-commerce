@@ -35,7 +35,11 @@ export function AddToCartButton({
   const disabled = product.stock <= 0 || status === "loading";
 
   return (
-    <div className="add-to-cart-actions d-flex flex-wrap gap-2">
+    <div
+      className="add-to-cart-actions d-flex flex-wrap gap-2"
+      role="group"
+      aria-label={`Purchase actions for ${product.name}`}
+    >
       <button
         type="button"
         className={className}
