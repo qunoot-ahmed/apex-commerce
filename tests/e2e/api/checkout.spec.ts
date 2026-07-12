@@ -138,7 +138,7 @@ test.describe("@api checkout API", () => {
     const response = await request.fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: "{",
+      data: Buffer.from("{"),
     });
     const error = await parseCheckoutError(response);
 

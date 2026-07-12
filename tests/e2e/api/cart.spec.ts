@@ -156,7 +156,7 @@ test.describe("@api cart API", () => {
     const response = await request.fetch("/api/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: "{",
+      data: Buffer.from("{"),
     });
     const error = await parseCartError(response);
 
